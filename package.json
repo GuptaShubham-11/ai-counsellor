@@ -8,12 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
-    "format:specified": "prettier --write",
-    "db:generate": "bunx drizzle-kit generate --config=drizzle.config.ts",
-    "db:migrate": "bunx drizzle-kit migrate --config=drizzle.config.ts",
-    "db:push": "bunx drizzle-kit push --config=drizzle.config.ts",
-    "db:studio": "bunx drizzle-kit studio --config=drizzle.config.ts",
-    "db:seed": "bun tsx lib/db/seed.ts"
+    "format:specified": "prettier --write"
   },
   "dependencies": {
     "drizzle-orm": "^0.45.1",
@@ -28,7 +23,6 @@
     "@types/pg": "^8.16.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "dotenv": "^17.2.3",
     "drizzle-kit": "^0.31.8",
     "eslint": "^9",
     "eslint-config-next": "16.1.4",
