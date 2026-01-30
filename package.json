@@ -16,11 +16,15 @@
     "db:seed": "bun tsx lib/db/seed.ts"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^1.11.1",
+    "bcryptjs": "^3.0.3",
     "drizzle-orm": "^0.45.1",
     "next": "16.1.4",
+    "next-auth": "^5.0.0-beta.30",
     "pg": "^8.17.2",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
