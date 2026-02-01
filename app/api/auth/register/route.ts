@@ -10,10 +10,7 @@ import { nanoid } from 'nanoid';
 export async function POST(request: NextRequest) {
   try {
     const reqData = await request.json();
-
     const validatedData = registerSchema.safeParse(reqData);
-    console.log(validatedData);
-    
     if (!validatedData.success) {
       return NextResponse.json(
         { error: validatedData.error.issues[0].message },
@@ -31,7 +28,7 @@ export async function POST(request: NextRequest) {
 
     if (existingUser.length > 0) {
       return NextResponse.json(
-        { error: 'User already exists!' },
+        { error: 'This email is already registered!' },
         { status: 409 }
       );
     }
@@ -47,13 +44,13 @@ export async function POST(request: NextRequest) {
     });
 
     return NextResponse.json(
-      { message: 'User registered successfully' },
+      { message: 'Your account has been created!' },
       { status: 201 }
     );
   } catch (error) {
     console.error('Register Error:', error);
     return NextResponse.json(
-      { error: 'Registration failed!' },
+      { error: 'Something went wrong! Please try again' },
       { status: 500 }
     );
   }

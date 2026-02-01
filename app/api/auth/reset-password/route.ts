@@ -8,12 +8,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function PATCH(request: NextRequest) {
   try {
     const reqData = await request.json();
-    console.log();
-    
-
     const validatedData = resetPasswordSchema.safeParse(reqData);
-    console.log(validatedData);
-    
     if (!validatedData.success) {
       return NextResponse.json(
         { error: validatedData.error.issues[0].message },
@@ -35,7 +30,10 @@ export async function PATCH(request: NextRequest) {
       .limit(1);
 
     if (!user.length) {
-      return NextResponse.json({ error: 'User not found!' }, { status: 404 });
+      return NextResponse.json(
+        { error: 'This email is not registered!' },
+        { status: 404 }
+      );
     }
 
     const saltRounds = Number(process.env.SALT_ROUNDS ?? 10);
